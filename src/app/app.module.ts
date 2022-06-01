@@ -10,9 +10,10 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { PaginatorModule } from 'primeng/paginator';
 import { FormsModule } from '@angular/forms';
+import { CryptoListComponent } from './components/crypto-list/crypto-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CryptoListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

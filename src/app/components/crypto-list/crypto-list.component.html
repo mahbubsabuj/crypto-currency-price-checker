@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="search-bar">
+      <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+          <input
+            type="text"
+            pInputText
+            placeholder="filter"
+            [(ngModel)]="term"
+            (keydown)="handleTermSubmit()"
+          />
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-refresh"
+            styleClass="p-button-warn"
+            (click)="resetTerm()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="currentPageData">
+    <div
+      class="crypto-data"
+      style="flex-direction: column"
+      *ngFor="let data of currentPageData"
+    >
+      <p-card class="p-card">
+        <div class="crypto-info">
+          <div class="crypto-rank">
+            {{ data.market_cap_rank }}
+          </div>
+          <p-divider layout="vertical"></p-divider>
+          <img [src]="data.image" alt="" />
+          <div class="crypto-name-price">
+            {{ data.name }}
+          </div>
+          <p-divider layout="vertical"></p-divider>
+  
+          <div class="crypto-name-price">{{ data.current_price | currency }}</div>
+          <p-divider layout="vertical"></p-divider>
+          <div crypto-market-cap>{{ data.market_cap | currency }}</div>
+        </div>
+      </p-card>
+    </div>
+    <div class="container">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-chevron-left"
+        class="p-button-rounded p-button-secondary p-button-text"
+        (click)="goLeft()"
+      ></button>
+      <p style="width: 10px"></p>
+      <p>{{ this.currentPage }}</p>
+      <p style="width: 10px"></p>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-chevron-right"
+        class="p-button-rounded p-button-secondary p-button-text"
+        (click)="goRight()"
+      ></button>
+    </div>
+  </div>
+  
