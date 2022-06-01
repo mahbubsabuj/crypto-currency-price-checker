@@ -30,6 +30,14 @@
       width: 75vw;
       margin-bottom: 1em;
     }
+    .crypto-info > div {
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .p-card {
+      width: 80vw;
+    }
   }
   
   .crypto-info {
